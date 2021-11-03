@@ -25,7 +25,6 @@ make install
 ## Run
 ```bash
 ./bf
-Description
 ```
 ## Man
 ```man
