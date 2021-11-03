@@ -1,7 +1,7 @@
 # LinkListBrainfuck
 
 
-# Language overview
+# Brainfuck overview
 Brainfuck operates on an array of memory cells, each initially set to zero. (In the original implementation, the array was 30,000 cells long, but this may not be part of the language specification; different sizes for the array length and cell size give different variants of the language). There is a pointer, initially pointing to the first memory cell. The commands are:
 | Brainfuck   | C                     | description                                                         |
 |:-----------:|-----------------------|---------------------------------------------------------------------|
@@ -13,3 +13,5 @@ Brainfuck operates on an array of memory cells, each initially set to zero. (In 
 | `]`         | `}`                   | Input a character and store it in the cell at the pointer           |
 | `.`         | `putchar(*ptr);`      | Jump past the matching ] if the cell at the pointer is 0            |
 | `,`         | `ptr[0] = getchar();` | Jump back to the matching [ if the cell at the pointer is nonzero   |
+
+All characters other than ><+-.,[] should be considered comments and ignored.
