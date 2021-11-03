@@ -15,3 +15,15 @@ Brainfuck operates on an array of memory cells, each initially set to zero. (In 
 | `,`         | `ptr[0] = getchar();` | Jump back to the matching [ if the cell at the pointer is nonzero   |
 
 All characters other than ><+-.,[] should be considered comments and ignored.
+
+# Usage
+## Compile
+
+```
+make
+```
+## Run
+```
+bf [-f fileName = input.bf] [-s speed = 0]
+
+```
