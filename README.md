@@ -43,7 +43,8 @@ DESCRIPTION
 
        -s, -speed *SPEED*
               Sets the speed to SPEED ms per character.
-              if not set SPEED to the number starting with * in the first line of the file otherwise it will set the speed to 0 ms per character.
+              if not set SPEED to the number starting with * in the first line of the file,
+              otherwise it will set the speed to 0 ms per character.
 EXAMPLES
        bf 
               input.bf will run with 0ms per character
