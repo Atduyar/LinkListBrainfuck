@@ -269,6 +269,9 @@ int setSpeed(FILE *f, int *s){
 		fseek(f, 1, SEEK_CUR);//konumu bir geriletir
 		fscanf(f, "%d",s);
 	}
+	else{
+		*s = 0;
+	}
 	return *s;
 }
 
