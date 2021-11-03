@@ -19,17 +19,16 @@ All characters other than ><+-.,[] should be considered comments and ignored.
 # Usage
 ## Compile
 
-```
+```bash
 make install
 ```
 ## Run
-```
+```bash
 ./bf
 Description
-
 ```
 ## Man
-```
+```man
 NAME
        bf - LinkedList Brainfuck compiler
 SYNOPSIS
