@@ -26,7 +26,7 @@ make install
 ```bash
 ./bf
 ```
-## Man
+# Man
 ```man
 NAME
        bf - LinkedList Brainfuck compiler
