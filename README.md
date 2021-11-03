@@ -27,7 +27,6 @@ make install
 ./bf
 ```
 # Man
-```man
 NAME
        bf - LinkedList Brainfuck compiler
 SYNOPSIS
@@ -54,4 +53,3 @@ EXAMPLES
        bf -f test.txt 
               text.txt will run with 0ms per character
 
-```
