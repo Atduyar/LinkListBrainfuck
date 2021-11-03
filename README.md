@@ -20,10 +20,39 @@ All characters other than ><+-.,[] should be considered comments and ignored.
 ## Compile
 
 ```
-make
+make install
 ```
 ## Run
 ```
-bf [-f fileName = input.bf] [-s speed = 0]
+./bf
+Description
+
+```
+## Man
+```
+NAME
+       bf - LinkedList Brainfuck compiler
+SYNOPSIS
+       bf  [-fFILE] [-s SPEED]
+DESCRIPTION
+       Concatenate FILE(s) to standard output.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       -f, -file, -i, -input *FILENAME*
+              input is FILENAME.
+
+       -s, -speed *SPEED*
+              Sets the speed to SPEED ms per character.
+              if not set SPEED to the number starting with * in the first line of the file otherwise it will set the speed to 0 ms per character.
+EXAMPLES
+       bf 
+              input.bf will run with 0ms per character
+              
+       bf -f test.txt -s 500
+              text.txt will run with 500ms per character
+
+       bf -f test.txt 
+              text.txt will run with 0ms per character
 
 ```
