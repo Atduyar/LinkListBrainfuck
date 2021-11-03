@@ -1,9 +1,9 @@
 GCC = gcc 
 GFLAGS = 
 
-build: clean brainfuck
+rebuild: clean install
 
-brainfuck:
+install:
   $(GCC)  bf.c -o bf $(GFLAGS)
   
 clean:
