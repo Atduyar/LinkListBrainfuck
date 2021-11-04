@@ -32,7 +32,7 @@ make install
 NAME
        bf - LinkedList Brainfuck compiler
 SYNOPSIS
-       bf  [-fFILE] [-s SPEED]
+       bf  [-f FILENAME] [-s SPEED]
 DESCRIPTION
        Concatenate FILE(s) to standard output.
 
@@ -42,9 +42,10 @@ DESCRIPTION
               input is FILENAME.
 
        -s, -speed *SPEED*
-              Sets the speed to SPEED ms per character.
-              if not set SPEED to the number starting with * in the first line of the file,
-              otherwise it will set the speed to 0 ms per character.
+              Expects SLEEP ms per character.
+              if not set SLEEP to the number starting with * in the first line of the file,
+              otherwise it will set the sleep to 0 ms per character.
+              
 EXAMPLES
        bf 
               input.bf will run with 0ms per character
