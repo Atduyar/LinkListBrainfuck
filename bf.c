@@ -386,7 +386,17 @@ int main(int argc, char* argv[]){
    		}
   	}
 
+  	printf("\n")
+  	
   	fclose(dosya);
-  	printf("\n");
+  	
+  	temp = getFirstNode(root);
+	node freeTemp;
+	while (temp != NULL){
+		freeTemp = temp;
+		temp = temp->n;
+		free(freeTemp);
+	}
+	
 	return 0;
 }
