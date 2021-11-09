@@ -18,7 +18,7 @@ make
 ```
 ## Start test file
 ```
-./bf
+./bf -s 25
 ```
 # Brainfuck overview
 Brainfuck operates on an array of memory cells, each initially set to zero. (In the original implementation, the array was 30,000 cells long, but this may not be part of the language specification; different sizes for the array length and cell size give different variants of the language). There is a pointer, initially pointing to the first memory cell. The commands are:
