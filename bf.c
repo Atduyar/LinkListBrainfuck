@@ -376,7 +376,7 @@ int main(int argc, char* argv[]){
 
 
    		printf("\033[0m");
-   		printf("");//satırı sil");
+   		//printf("");//satırı sil");
    		printf("\r\033[2K\r");
    		printNode(root, temp);
    		if (speed)
@@ -386,17 +386,18 @@ int main(int argc, char* argv[]){
    		}
   	}
 
-  	printf("\n")
-  	
+  	printf("\n");
+
   	fclose(dosya);
-  	
+
   	temp = getFirstNode(root);
 	node freeTemp;
-	while (temp != NULL){
+	while (temp != NULL)
+	{
 		freeTemp = temp;
 		temp = temp->n;
 		free(freeTemp);
 	}
-	
+
 	return 0;
 }
