@@ -13,7 +13,7 @@ curl -s https://api.github.com/repos/Atduyar/LinkListBrainfuck/releases/latest \
 ## Install
 ```
 unzip LinkListBrainfuck.zip
-cd LinkListBrainfuck-main
+cd LinkListBrainfuck
 make
 ```
 ## Start test file
