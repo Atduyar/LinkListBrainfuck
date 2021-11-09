@@ -2,7 +2,7 @@
 Normal Brainfuck but made with linkedList.<br />
 My first linkedList project.
 
-#Downold
+# Downold
 ```
 curl -s https://api.github.com/repos/Atduyar/LinkListBrainfuck/releases/latest | jq -r ".assets[] | select(.name | test(\"${spruce_type}\")) | .browser_download_url"  | wget -qi -
 ```
