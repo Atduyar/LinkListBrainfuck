@@ -14,7 +14,7 @@ typedef struct no* node;
 
 node newNode(int x) 
 { 
-    node root = (node)malloc(sizeof(node)); 
+    node root = (node)malloc(sizeof(struct no)); 
     root->value = x; 
     root->n = root->p = NULL; 
     return root; 
