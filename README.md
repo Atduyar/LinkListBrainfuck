@@ -54,7 +54,7 @@ DESCRIPTION
        -f, -file, -i, -input *FILENAME*
               input is FILENAME.
 
-       -s, -speed *SPEED*
+       -s, -speed *SLEEP*
               Expects SLEEP ms per character.
               if not set SLEEP to the number starting with * in the first line of the file,
               otherwise it will set the sleep to 0 ms per character.
