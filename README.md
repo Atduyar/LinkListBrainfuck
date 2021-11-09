@@ -10,13 +10,13 @@ curl -s https://api.github.com/repos/Atduyar/LinkListBrainfuck/releases/latest \
        | .browser_download_url"  \
        | wget -qi -
 ```
-## Install
+## Compile
 ```
 unzip LinkListBrainfuck.zip
 cd LinkListBrainfuck
-make
+make install
 ```
-## Start test file
+## Start test run
 ```
 ./bf -s 25
 ```
@@ -36,14 +36,9 @@ Brainfuck operates on an array of memory cells, each initially set to zero. (In 
 All characters other than ><+-.,[] should be considered comments and ignored.
 
 # Usage
-## Compile
-
-```bash
-make install
-```
 ## Run
 ```bash
-./bf
+./bf -f ./input.bf -s 25
 ```
 # Man
 ```
