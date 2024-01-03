@@ -4,39 +4,37 @@
 #include <string.h>
 #include <unistd.h> 
 
-struct no{
+typedef struct node{
 	int value;
-	struct no *n;
-	struct no *p;
-};
+	struct node *n;
+	struct node *p;
+} Node;
 
-typedef struct no* node;
-
-node newNode(int x) 
+Node* newNode(int x) 
 { 
-    node root = (node)malloc(sizeof(struct no)); 
+    Node* root = (Node*)malloc(sizeof(Node)); 
     root->value = x; 
     root->n = root->p = NULL; 
     return root; 
 } 
 
-node addLastNode(node root, int x) 
+Node* addLastNode(Node* root, int x) 
 { 
     root->n = newNode(x);
     root->n->p = root; 
     return root->n; 
 } 
 
-node addFirstNode(node root, int x) 
+Node* addFirstNode(Node* root, int x) 
 { 
     root->p = newNode(x);
     root->p->n = root; 
     return root->p; 
 } 
 
-node addNode(node root, int x) 
+Node* addNode(Node* root, int x) 
 { 
-	node temp = newNode(x);
+	Node* temp = newNode(x);
 	temp->n = root->n;
     if (root->n != NULL)
 	{
@@ -48,7 +46,7 @@ node addNode(node root, int x)
     return temp; 
 } 
 
-int deleteNode(node root) 
+int deleteNode(Node* root) 
 { 
 	int s = 0;
 	if (root->n != NULL && root->p != NULL)
@@ -80,7 +78,7 @@ int deleteNode(node root)
 
 ///////////////
 
-node getLastNode(node temp) 
+Node* getLastNode(Node* temp) 
 { 
 	while (temp->n != NULL)
 	{
@@ -89,7 +87,7 @@ node getLastNode(node temp)
 	return temp;
 } 
 
-node getFirstNode(node temp) 
+Node* getFirstNode(Node* temp) 
 { 
 	while (temp->p != NULL)
 	{
@@ -98,7 +96,7 @@ node getFirstNode(node temp)
 	return temp;
 } 
 
-node pushNode(node root, int x) 
+Node* pushNode(Node* root, int x) 
 { 
 	root = getLastNode(root);
     return addLastNode(root, x);
@@ -106,7 +104,7 @@ node pushNode(node root, int x)
 
 ///////////////
 
-void printNodeColors(node root, node  temp, node froot) 
+void printNodeColors(Node* root, Node*  temp, Node* froot) 
 { 
 	if (froot == root)
 	{
@@ -125,7 +123,7 @@ void printNodeColors(node root, node  temp, node froot)
 	}
 } 
 
-void printNextNode(node root, node temp, node froot) 
+void printNextNode(Node* root, Node* temp, Node* froot) 
 { 
 	printNodeColors(root, temp, froot);
 	if(froot->n != NULL)
@@ -135,7 +133,7 @@ void printNextNode(node root, node temp, node froot)
 	}
 } 
 
-void printNode(node root, node temp) 
+void printNode(Node* root, Node* temp) 
 { 
 	printNextNode(root, temp, getFirstNode(temp));
 } 
@@ -147,7 +145,7 @@ void printNode(node root, node temp)
 
 
 
-node bfLeft(node root){
+Node* bfLeft(Node* root){
 	if (root->p == NULL)
 	{
 		return addFirstNode(root, 0);
@@ -155,7 +153,7 @@ node bfLeft(node root){
 	return root->p;
 }
 
-node bfRight(node root){
+Node* bfRight(Node* root){
 	if (root->n == NULL)
 	{
 		return addLastNode(root, 0);
@@ -163,34 +161,34 @@ node bfRight(node root){
 	return root->n;
 }
 
-void bfAdd(node root){
+void bfAdd(Node* root){
 	root->value++;
 	if(root->value > 255){
 		root->value = 0;
 	}
 }
 
-void bfSub(node root){
+void bfSub(Node* root){
 	root->value--;
 	if(root->value < 0){
 		root->value = 255;
 	}
 }
 
-char bfGetC(node root){
+char bfGetC(Node* root){
 	return (char)root->value;
 }
 
-char bfSetC(node root, char	c){
+char bfSetC(Node* root, char	c){
 	return root->value = (int)c;
 }
 
-void bfLoopOn(node root, int *loop, int *loopi){
+void bfLoopOn(Node* root, int *loop, int *loopi){
 	*loop = *loop + 1;
 	//printf("loop On %d\n",*loop);
 }
 
-void bfLoopS(node root, FILE *f, int *loop, int *loopi){
+void bfLoopS(Node* root, FILE *f, int *loop, int *loopi){
 	char c;
 	while(true){
 		//printf("loop----\n");
@@ -219,7 +217,7 @@ void bfLoopS(node root, FILE *f, int *loop, int *loopi){
 
 }
 
-void bfLoopOff(node root, FILE *f, int *loop, int *loopi){
+void bfLoopOff(Node* root, FILE *f, int *loop, int *loopi){
 	if (root->value <= 0)// loop dan direkt cıkma sartı
 	{
 		//printf("loop d kapa\n");
@@ -284,8 +282,8 @@ int main(int argc, char* argv[]){
 	//	inputFile = argv[1];
 	//}
 
-	node root = newNode(0);
-	node temp = root;
+	Node* root = newNode(0);
+	Node* temp = root;
 	//dosya chrosor ü
 	char c;
 	//loop ların toplamı ve konumu
@@ -391,7 +389,7 @@ int main(int argc, char* argv[]){
   	fclose(dosya);
 
   	temp = getFirstNode(root);
-	node freeTemp;
+	Node* freeTemp;
 	while (temp != NULL)
 	{
 		freeTemp = temp;
