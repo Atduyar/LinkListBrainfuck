@@ -259,6 +259,7 @@ int main(int _, char* argv[]) {
     }
 
     printf("\n");
+    printf("\e[?25h");
 
     fclose(dosya);
 
