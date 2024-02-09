@@ -5,50 +5,50 @@
 Node* newNode(int x) {
     Node* root = (Node*)malloc(sizeof(Node));
     root->value = x;
-    root->n = root->p = NULL;
+    root->next = root->prev = NULL;
     return root;
 }
 
 Node* addLastNode(Node* root, int x) {
-    root->n = newNode(x);
-    root->n->p = root;
-    return root->n;
+    root->next = newNode(x);
+    root->next->prev = root;
+    return root->next;
 }
 
 Node* addFirstNode(Node* root, int x) {
-    root->p = newNode(x);
-    root->p->n = root;
-    return root->p;
+    root->prev = newNode(x);
+    root->prev->next = root;
+    return root->prev;
 }
 
 Node* addNode(Node* root, int x) {
     Node* temp = newNode(x);
-    temp->n = root->n;
-    if (root->n != NULL) {
-        temp->n->p = temp;
+    temp->next = root->next;
+    if (root->next != NULL) {
+        temp->next->prev = temp;
     }
-    root->n = temp;
-    temp->p = root;
+    root->next = temp;
+    temp->prev = root;
 
     return temp;
 }
 
 int deleteNode(Node* root) {
     int s = 0;
-    if (root->n != NULL && root->p != NULL) {
-        if (root->p == NULL)  // ilk eleman sa
+    if (root->next != NULL && root->prev != NULL) {
+        if (root->prev == NULL)  // ilk eleman sa
         {
-            root->n->p = NULL;
+            root->next->prev = NULL;
             s = 2;
-        } else if (root->p != NULL) {
-            if (root->n == NULL)  // son elemansa
+        } else if (root->prev != NULL) {
+            if (root->next == NULL)  // son elemansa
             {
                 s = 3;
-                root->p->n = NULL;
-            } else if (root->n != NULL) {
+                root->prev->next = NULL;
+            } else if (root->next != NULL) {
                 s = 1;
-                root->p->n = root->n;
-                root->n->p = root->p;
+                root->prev->next = root->next;
+                root->next->prev = root->prev;
             }
         }
     } else {  // tek elemansa
@@ -61,15 +61,15 @@ int deleteNode(Node* root) {
 ///////////////
 
 Node* getLastNode(Node* temp) {
-    while (temp->n != NULL) {
-        temp = temp->n;
+    while (temp->next != NULL) {
+        temp = temp->next;
     }
     return temp;
 }
 
 Node* getFirstNode(Node* temp) {
-    while (temp->p != NULL) {
-        temp = temp->p;
+    while (temp->prev != NULL) {
+        temp = temp->prev;
     }
     return temp;
 }

@@ -22,8 +22,8 @@ void printNodeColors(Node* root, Node* temp, Node* froot) {
 
 void printNextNode(Node* root, Node* temp, Node* froot) {
     printNodeColors(root, temp, froot);
-    if (froot->n != NULL) {
-        froot = froot->n;
+    if (froot->next != NULL) {
+        froot = froot->next;
         printNextNode(root, temp, froot);
     }
 }
@@ -33,17 +33,17 @@ void printNode(Node* root, Node* temp) {
 }
 
 Node* bfLeft(Node* root) {
-    if (root->p == NULL) {
+    if (root->prev == NULL) {
         return addFirstNode(root, 0);
     }
-    return root->p;
+    return root->prev;
 }
 
 Node* bfRight(Node* root) {
-    if (root->n == NULL) {
+    if (root->next == NULL) {
         return addLastNode(root, 0);
     }
-    return root->n;
+    return root->next;
 }
 
 void bfAdd(Node* root) {
@@ -267,7 +267,7 @@ int main(int _, char* argv[]) {
     Node* freeTemp;
     while (temp != NULL) {
         freeTemp = temp;
-        temp = temp->n;
+        temp = temp->next;
         free(freeTemp);
     }
 

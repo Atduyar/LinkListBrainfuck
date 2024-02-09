@@ -2,8 +2,8 @@
 
 typedef struct node {
     int value;
-    struct node* n;
-    struct node* p;
+    struct node* next;
+    struct node* prev;
 } Node;
 
 Node* newNode(int x);
