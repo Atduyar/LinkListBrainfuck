@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-global, undefined-field
 workspace "bf"
     configurations { "Release", "Debug" }
     language "C"
@@ -24,3 +24,18 @@ project "List"
     location "build"
     files { "src/List/src/*.c" }
     includedirs { "include", "src" }
+
+-- Clean Function --
+newaction {
+   trigger     = "clean",
+   description = "clean the software",
+   execute     = function ()
+      print("clean the bin...")
+      os.rmdir("./bin")
+      print("clean the build...")
+      os.rmdir("./build")
+      print("clean the Makefile...")
+      os.remove("./Makefile")
+      print("done.")
+   end
+}
